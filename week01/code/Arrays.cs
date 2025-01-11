@@ -13,7 +13,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // assigning a array to receive the results
+        double[] multiples = new double[length];
+        // a loop for that will run the number of times indicated by length once this is
+        // how many multiples we'll need to return
+        for (int i = 1; i <= length; i++){
+            //add the multiple number to the array. Because the index should start in 0
+            //and the for starts in 1 I am using i - 1 for the index
+            multiples[i-1] = number * i;
+        }
+
+        //return the array
+        return multiples; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +40,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        
+        //start a new list to have the items to be in the beggining of the list
+        var endList = new List<int>();
+        // determine the starting index of the rotation
+        int i = data.Count - amount;
+
+        // loop for will add all the right elements to the endList and remove it from data
+        for (int j = i; j < i + amount; j++){
+            endList.Add(data[i]);
+            data.RemoveAt(i);
+        }
+        //add the endList to data starting on index 0 and completing the rotation
+        data.InsertRange(0, endList);
+
     }
 }
